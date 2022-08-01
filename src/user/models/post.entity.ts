@@ -3,9 +3,6 @@ import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 @Entity('users')
 export class UserPostEntity {
   @PrimaryGeneratedColumn()
-  id: number;
-
-  @Column({ default: 0 })
   usr_id: number;
 
   @Column({ default: '' })

@@ -3,6 +3,10 @@ import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
+import { ClientModule } from './client/client.module';
+import { DealershipModule } from './dealership/dealership.module';
+import { IntegratorModule } from './integrator/integrator.module';
+import { ProjectTypeModule } from './projectType/projectType.module';
 import { UserModule } from './user/user.module';
 
 @Module({
@@ -16,9 +20,12 @@ import { UserModule } from './user/user.module';
       password: process.env.POSTGRES_PASSWORD,
       database: process.env.POSTGRES_DATABASE,
       autoLoadEntities: true,
-      // synchronize: true,
     }),
     UserModule,
+    ClientModule,
+    DealershipModule,
+    IntegratorModule,
+    ProjectTypeModule,
   ],
   controllers: [AppController],
   providers: [AppService],
