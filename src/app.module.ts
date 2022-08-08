@@ -1,13 +1,11 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
-import { ClientModule } from './client/client.module';
-import { DealershipModule } from './dealership/dealership.module';
-import { IntegratorModule } from './integrator/integrator.module';
-import { ProjectTypeModule } from './projectType/projectType.module';
-import { UserModule } from './user/user.module';
+import { CustomerModule } from './modules/customer.module';
+import { DealershipModule } from './modules/dealership.module';
+import { IntegratorModule } from './modules/integrator.module';
+import { ProjectTypeModule } from './modules/projectType.module';
+import { UserModule } from './modules/user.module';
 
 @Module({
   imports: [
@@ -22,12 +20,10 @@ import { UserModule } from './user/user.module';
       autoLoadEntities: true,
     }),
     UserModule,
-    ClientModule,
+    CustomerModule,
     DealershipModule,
     IntegratorModule,
     ProjectTypeModule,
   ],
-  controllers: [AppController],
-  providers: [AppService],
 })
 export class AppModule {}
