@@ -4,6 +4,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { CustomerModule } from './modules/customer.module';
 import { DealershipModule } from './modules/dealership.module';
 import { IntegratorModule } from './modules/integrator.module';
+import { ProjectModule } from './modules/project.module';
 import { ProjectTypeModule } from './modules/projectType.module';
 import { UserModule } from './modules/user.module';
 
@@ -24,6 +25,7 @@ import { UserModule } from './modules/user.module';
     DealershipModule,
     IntegratorModule,
     ProjectTypeModule,
+    ProjectModule,
   ],
 })
 export class AppModule {}

@@ -26,15 +26,15 @@ export class ProjectController {
     return this.model.save(body);
   }
 
-  @Get(':prj_id')
+  @Get(':pjt_id')
   public async getOne(
-    @Param('prj_id', ParseIntPipe) prj_id: number,
+    @Param('pjt_id', ParseIntPipe) pjt_id: number,
   ): Promise<ProjectModel> {
-    const Project = await this.model.findOne({ where: { prj_id } });
+    const Project = await this.model.findOne({ where: { pjt_id } });
 
     if (!Project) {
       throw new NotFoundException(
-        `Não achei uma pessoa com o prj_id ${prj_id}`,
+        `Não achei uma pessoa com o pjt_id ${pjt_id}`,
       );
     }
 
@@ -46,38 +46,38 @@ export class ProjectController {
     return this.model.find();
   }
 
-  @Put(':prj_id')
+  @Put(':pjt_id')
   public async update(
-    @Param('prj_id', ParseIntPipe) prj_id: number,
+    @Param('pjt_id', ParseIntPipe) pjt_id: number,
     @Body() body: ProjectSchema,
   ): Promise<ProjectModel> {
-    const Project = await this.model.findOne({ where: { prj_id } });
+    const Project = await this.model.findOne({ where: { pjt_id } });
 
     if (!Project) {
       throw new NotFoundException(
-        `Não achei uma pessoa com o prj_id ${prj_id}`,
+        `Não achei uma pessoa com o pjt_id ${pjt_id}`,
       );
     }
 
-    await this.model.update({ prj_id }, body);
+    await this.model.update({ pjt_id }, body);
 
-    return this.model.findOne({ where: { prj_id } });
+    return this.model.findOne({ where: { pjt_id } });
   }
 
-  @Delete(':prj_id')
+  @Delete(':pjt_id')
   public async delete(
-    @Param('prj_id', ParseIntPipe) prj_id: number,
+    @Param('pjt_id', ParseIntPipe) pjt_id: number,
   ): Promise<string> {
-    const Project = await this.model.findOne({ where: { prj_id } });
+    const Project = await this.model.findOne({ where: { pjt_id } });
 
     if (!Project) {
       throw new NotFoundException(
-        `Não achei uma pessoa com o prj_id ${prj_id}`,
+        `Não achei uma pessoa com o pjt_id ${pjt_id}`,
       );
     }
 
-    await this.model.delete(prj_id);
+    await this.model.delete(pjt_id);
 
-    return `A pessoa com prj_id ${prj_id} foi deletada com sucesso`;
+    return `A pessoa com pjt_id ${pjt_id} foi deletada com sucesso`;
   }
 }
