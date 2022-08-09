@@ -7,6 +7,8 @@ import { IntegratorModule } from './modules/integrator.module';
 import { ProjectModule } from './modules/project.module';
 import { ProjectTypeModule } from './modules/projectType.module';
 import { UserModule } from './modules/user.module';
+import { StatusModule} from './modules/status.module'
+import { UfModule} from './modules/uf.module'
 
 @Module({
   imports: [
@@ -26,6 +28,8 @@ import { UserModule } from './modules/user.module';
     IntegratorModule,
     ProjectTypeModule,
     ProjectModule,
+    StatusModule,
+    UfModule
   ],
 })
 export class AppModule {}

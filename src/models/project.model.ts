@@ -5,32 +5,20 @@ export class ProjectModel {
   @PrimaryGeneratedColumn()
   pjt_id: number;
 
-  @Column({ default: 0 })
-  sts_id: number;
-
   @Column({ default: '' })
   sts_name: string;
 
   @Column()
   pjt_next_date: string;
 
-  @Column({ default: 0 })
-  uf_id: number;
-
-  @Column({ default: 0 })
-  dls_id: number;
-
-  @Column({ default: 0 })
-  int_id: number;
-
   @Column({ default: '' })
   int_name: string;
 
   @Column({ default: 0 })
-  dls_name: string;
+  uf_name: string;
 
   @Column({ default: 0 })
-  cli_id: number;
+  dls_name: string;
 
   @Column({ default: 0 })
   cli_name: string;
