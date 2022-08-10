@@ -25,35 +25,35 @@ export class CustomerController {
     return this.model.save(body);
   }
 
-  // @Get(':cli_id')
-  // public async getOne(
-  //   @Param('cli_id', ParseIntPipe) cli_id: number,
-  // ): Promise<CustomerModel> {
-  //   const customer = await this.model.findOne({ where: { cli_id } });
-
-  //   if (!customer) {
-  //     throw new NotFoundException(
-  //       `Não achei uma pessoa com o cli_id ${cli_id}`,
-  //     );
-  //   }
-
-  //   return customer;
-  // }
-
-  @Get(':cli_cpf_cnpj')
-  public async getOneDoc(
-    @Param('cli_cpf_cnpj', ParseIntPipe) cli_cpf_cnpj: number,
+  @Get(':cli_id')
+  public async getOne(
+    @Param('cli_id', ParseIntPipe) cli_id: number,
   ): Promise<CustomerModel> {
-    const customer = await this.model.findOne({ where: { cli_cpf_cnpj } });
+    const customer = await this.model.findOne({ where: { cli_id } });
 
     if (!customer) {
       throw new NotFoundException(
-        `Não achei uma pessoa com o cli_cpf_cnpj ${cli_cpf_cnpj}`,
+        `Não achei uma pessoa com o cli_id ${cli_id}`,
       );
     }
 
     return customer;
   }
+
+  // @Get(':cli_cpf_cnpj')
+  // public async getOneDoc(
+  //   @Param('cli_cpf_cnpj', ParseIntPipe) cli_cpf_cnpj: number,
+  // ): Promise<CustomerModel> {
+  //   const customer = await this.model.findOne({ where: { cli_cpf_cnpj } });
+
+  //   if (!customer) {
+  //     throw new NotFoundException(
+  //       `Não achei uma pessoa com o cli_cpf_cnpj ${cli_cpf_cnpj}`,
+  //     );
+  //   }
+
+  //   return customer;
+  // }
 
   @Get()
   public async getAll(): Promise<CustomerModel[]> {

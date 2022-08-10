@@ -28,15 +28,15 @@ export class DealershipController {
     return this.model.save(body);
   }
 
-  @Get(':dls_cpf_cnpj')
+  @Get(':dls_id')
   public async getOneDoc(
-    @Param('dls_cpf_cnpj', ParseIntPipe) dls_cpf_cnpj: number,
+    @Param('dls_id', ParseIntPipe) dls_id: number,
   ): Promise<DealershipModel> {
-    const Dealership = await this.model.findOne({ where: { dls_cpf_cnpj } });
+    const Dealership = await this.model.findOne({ where: { dls_id } });
 
     if (!Dealership) {
       throw new NotFoundException(
-        `Não achei uma pessoa com o dls_cpf_cnpj ${dls_cpf_cnpj}`,
+        `Não achei uma pessoa com o dls_id ${dls_id}`,
       );
     }
 

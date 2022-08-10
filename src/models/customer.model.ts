@@ -17,14 +17,14 @@ export class CustomerModel {
   @Column({ length: 120 })
   cli_company_name?: string;
 
-  @Column()
-  cli_date?: Date;
+  @Column({ default: '' })
+  cli_date?: string;
 
   @Column({ length: 255 })
   cli_email?: string;
 
   @Column('int')
-  cli_celphone?: number;
+  cli_cellphone?: number;
 
   @Column('int')
   cli_phone1?: number;
@@ -38,8 +38,8 @@ export class CustomerModel {
   @Column({ default: '' })
   cli_address?: string;
 
-  @Column({ default: 0 })
-  uf_id?: number;
+  @Column({ default: '' })
+  cli_uf_name?: string;
 
   @Column({ default: 0 })
   cli_ibge_code?: number;

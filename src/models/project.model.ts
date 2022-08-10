@@ -79,4 +79,25 @@ export class ProjectModel {
 
   @Column({ default: '' })
   pjt_due: string;
+
+  @Column({ default: '' })
+  cli_email: string;
+
+  @Column({ default: '' })
+  cli_initial_date: string;
+
+  @Column({ default: 0 })
+  cli_rg_ie: number;
+
+  @Column({ default: 0 })
+  cli_cpf_cnpj: number;
+
+  @Column({ default: 0 })
+  cli_phone2: number;
+
+  @Column({ default: 0 })
+  cli_phone1: number;
+
+  @Column({ default: 0 })
+  cli_cellphone: number;
 }

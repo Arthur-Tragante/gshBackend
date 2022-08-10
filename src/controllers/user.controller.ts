@@ -25,35 +25,35 @@ export class UserController {
     return this.model.save(body);
   }
 
-  // @Get(':usr_id')
-  // public async getOne(
-  //   @Param('usr_id', ParseIntPipe) usr_id: number,
-  // ): Promise<UserModel> {
-  //   const user = await this.model.findOne({ where: { usr_id } });
-
-  //   if (!user) {
-  //     throw new NotFoundException(
-  //       `Não achei uma pessoa com o usr_id ${usr_id}`,
-  //     );
-  //   }
-
-  //   return user;
-  // }
-
-  @Get(':usr_cpf_cnpj')
-  public async getOneDoc(
-    @Param('usr_cpf_cnpj', ParseIntPipe) usr_cpf_cnpj: number,
+  @Get(':usr_id')
+  public async getOne(
+    @Param('usr_id', ParseIntPipe) usr_id: number,
   ): Promise<UserModel> {
-    const user = await this.model.findOne({ where: { usr_cpf_cnpj } });
+    const user = await this.model.findOne({ where: { usr_id } });
 
     if (!user) {
       throw new NotFoundException(
-        `Não achei uma pessoa com o usr_cpf_cnpj ${usr_cpf_cnpj}`,
+        `Não achei uma pessoa com o usr_id ${usr_id}`,
       );
     }
 
     return user;
   }
+
+  // @Get(':usr_cpf_cnpj')
+  // public async getOneDoc(
+  //   @Param('usr_cpf_cnpj', ParseIntPipe) usr_cpf_cnpj: number,
+  // ): Promise<UserModel> {
+  //   const user = await this.model.findOne({ where: { usr_cpf_cnpj } });
+
+  //   if (!user) {
+  //     throw new NotFoundException(
+  //       `Não achei uma pessoa com o usr_cpf_cnpj ${usr_cpf_cnpj}`,
+  //     );
+  //   }
+
+  //   return user;
+  // }
 
   @Get()
   public async getAll(): Promise<UserModel[]> {

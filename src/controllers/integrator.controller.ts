@@ -28,15 +28,15 @@ export class IntegratorController {
     return this.model.save(body);
   }
 
-  @Get(':int_cpf_cnpj')
+  @Get(':int_id')
   public async getOneDoc(
-    @Param('int_cpf_cnpj', ParseIntPipe) int_cpf_cnpj: number,
+    @Param('int_id', ParseIntPipe) int_id: number,
   ): Promise<IntegratorModel> {
-    const Integrator = await this.model.findOne({ where: { int_cpf_cnpj } });
+    const Integrator = await this.model.findOne({ where: { int_id } });
 
     if (!Integrator) {
       throw new NotFoundException(
-        `Não achei uma pessoa com o int_cpf_cnpj ${int_cpf_cnpj}`,
+        `Não achei uma pessoa com o int_id ${int_id}`,
       );
     }
 

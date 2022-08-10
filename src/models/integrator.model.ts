@@ -17,8 +17,8 @@ export class IntegratorModel {
   @Column({ default: '' })
   int_company_name?: string;
 
-  @Column()
-  int_date?: Date;
+  @Column({ default: '' })
+  int_date?: string;
 
   @Column({ default: '' })
   int_email?: string;
@@ -41,8 +41,8 @@ export class IntegratorModel {
   @Column({ default: '' })
   int_address?: string;
 
-  @Column({ default: 0 })
-  uf_id?: number;
+  @Column({ default: '' })
+  int_uf_name?: string;
 
   @Column({ default: 0 })
   int_ibge_code?: number;
