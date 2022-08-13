@@ -39,21 +39,21 @@ export class UserController {
 
     return user;
   }
+  
+  @Get('/doc/:usr_cpf_cnpj')
+  public async getOneDoc(
+    @Param('usr_cpf_cnpj', ParseIntPipe) usr_cpf_cnpj: number,
+  ): Promise<UserModel> {
+    const user = await this.model.findOne({ where: { usr_cpf_cnpj } });
 
-  // @Get(':usr_cpf_cnpj')
-  // public async getOneDoc(
-  //   @Param('usr_cpf_cnpj', ParseIntPipe) usr_cpf_cnpj: number,
-  // ): Promise<UserModel> {
-  //   const user = await this.model.findOne({ where: { usr_cpf_cnpj } });
+    if (!user) {
+      throw new NotFoundException(
+        `Não achei uma pessoa com o usr_cpf_cnpj ${usr_cpf_cnpj}`,
+      );
+    }
 
-  //   if (!user) {
-  //     throw new NotFoundException(
-  //       `Não achei uma pessoa com o usr_cpf_cnpj ${usr_cpf_cnpj}`,
-  //     );
-  //   }
-
-  //   return user;
-  // }
+    return user;
+  }
 
   @Get()
   public async getAll(): Promise<UserModel[]> {

@@ -41,6 +41,21 @@ export class ProjectController {
     return Project;
   }
 
+  @Get('/doc/:cli_cpf_cnpj')
+  public async getOneDoc(
+    @Param('cli_cpf_cnpj', ParseIntPipe) cli_cpf_cnpj: number,
+  ): Promise<ProjectModel> {
+    const Project = await this.model.findOne({ where: { cli_cpf_cnpj } });
+
+    if (!Project) {
+      throw new NotFoundException(
+        `Não achei uma pessoa com o cli_cpf_cnpj ${cli_cpf_cnpj}`,
+      );
+    }
+
+    return Project;
+  }
+
   @Get()
   public async getAll(): Promise<ProjectModel[]> {
     return this.model.find();

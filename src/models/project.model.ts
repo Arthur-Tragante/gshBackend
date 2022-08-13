@@ -100,4 +100,7 @@ export class ProjectModel {
 
   @Column({ default: 0 })
   cli_cellphone: number;
+
+  @Column({ default: "" })
+  sts_name_next:string
 }
