@@ -7,8 +7,9 @@ import { IntegratorModule } from './modules/integrator.module';
 import { ProjectModule } from './modules/project.module';
 import { ProjectTypeModule } from './modules/projectType.module';
 import { UserModule } from './modules/user.module';
-import { StatusModule} from './modules/status.module'
-import { UfModule} from './modules/uf.module'
+import { StatusModule } from './modules/status.module';
+import { UfModule } from './modules/uf.module';
+import { EmailModule } from './modules/email.module';
 
 @Module({
   imports: [
@@ -29,7 +30,9 @@ import { UfModule} from './modules/uf.module'
     ProjectTypeModule,
     ProjectModule,
     StatusModule,
-    UfModule
+    UfModule,
+    EmailModule,
   ],
+  controllers: [],
 })
 export class AppModule {}

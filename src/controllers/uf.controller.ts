@@ -16,9 +16,7 @@ import { UfSchema } from 'src/schemas/uf.schema';
 
 @Controller('/uf')
 export class UfController {
-  constructor(
-    @InjectRepository(UfModel) private model: Repository<UfModel>,
-  ) {}
+  constructor(@InjectRepository(UfModel) private model: Repository<UfModel>) {}
 
   @Post()
   public async create(@Body() body: UfSchema): Promise<UfModel> {
@@ -32,14 +30,11 @@ export class UfController {
     const Uf = await this.model.findOne({ where: { uf_id } });
 
     if (!Uf) {
-      throw new NotFoundException(
-        `Não achei uma pessoa com o uf_id ${uf_id}`,
-      );
+      throw new NotFoundException(`Não achei uma pessoa com o uf_id ${uf_id}`);
     }
 
     return Uf;
   }
-
 
   @Get()
   public async getAll(): Promise<UfModel[]> {
@@ -54,9 +49,7 @@ export class UfController {
     const Uf = await this.model.findOne({ where: { uf_id } });
 
     if (!Uf) {
-      throw new NotFoundException(
-        `Não achei uma pessoa com o uf_id ${uf_id}`,
-      );
+      throw new NotFoundException(`Não achei uma pessoa com o uf_id ${uf_id}`);
     }
 
     await this.model.update({ uf_id }, body);
@@ -71,9 +64,7 @@ export class UfController {
     const Uf = await this.model.findOne({ where: { uf_id } });
 
     if (!Uf) {
-      throw new NotFoundException(
-        `Não achei uma pessoa com o uf_id ${uf_id}`,
-      );
+      throw new NotFoundException(`Não achei uma pessoa com o uf_id ${uf_id}`);
     }
 
     await this.model.delete(uf_id);
