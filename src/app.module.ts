@@ -10,6 +10,8 @@ import { UserModule } from './modules/user.module';
 import { StatusModule } from './modules/status.module';
 import { UfModule } from './modules/uf.module';
 import { EmailModule } from './modules/email.module';
+import { AuthModule } from './auth/auth.module';
+import { UserService } from './user/user.service';
 
 @Module({
   imports: [
@@ -32,7 +34,9 @@ import { EmailModule } from './modules/email.module';
     StatusModule,
     UfModule,
     EmailModule,
+    AuthModule,
   ],
   controllers: [],
+  providers: [],
 })
 export class AppModule {}

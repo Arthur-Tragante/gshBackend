@@ -13,11 +13,13 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { UserModel } from 'src/models/user.model';
 import { UserSchema } from 'src/schemas/user.schema';
+import { UserService } from 'src/user/user.service';
 
 @Controller('/user')
 export class UserController {
   constructor(
     @InjectRepository(UserModel) private model: Repository<UserModel>,
+    private userService: UserService,
   ) {}
 
   @Post()
@@ -39,7 +41,7 @@ export class UserController {
 
     return user;
   }
-  
+
   @Get('/doc/:usr_cpf_cnpj')
   public async getOneDoc(
     @Param('usr_cpf_cnpj', ParseIntPipe) usr_cpf_cnpj: number,
@@ -55,9 +57,13 @@ export class UserController {
     return user;
   }
 
+  // @Get()
+  // public async getAll(): Promise<UserModel[]> {
+  //   return this.model.find();
+  // }
   @Get()
-  public async getAll(): Promise<UserModel[]> {
-    return this.model.find();
+  getAll() {
+    return this.userService.getAll();
   }
 
   @Put(':usr_id')
