@@ -11,8 +11,8 @@ import {
 } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { IntegratorModel } from 'src/models/Integrator.model';
-import { IntegratorSchema } from 'src/schemas/Integrator.schema';
+import { IntegratorModel } from 'src/models/integrator.model';
+import { IntegratorSchema } from 'src/schemas/integrator.schema';
 
 @Controller('/integrator')
 export class IntegratorController {
