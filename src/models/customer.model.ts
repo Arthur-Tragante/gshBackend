@@ -8,8 +8,11 @@ export class CustomerModel {
   @Column({ length: 120 })
   cli_name?: string;
 
-  @Column('int')
-  cli_cpf_cnpj?: number;
+  @Column({ length: 15 })
+  cli_password?: string;
+
+  @Column({ length: 15 })
+  cli_cpf_cnpj?: string;
 
   @Column('int')
   cli_rg_ie?: number;

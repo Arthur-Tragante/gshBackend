@@ -14,8 +14,8 @@ export class UserModel {
   @Column({ length: 50 })
   usr_password: string;
 
-  @Column('int')
-  usr_cpf_cnpj: number;
+  @Column({ length: 15 })
+  usr_cpf_cnpj: string;
 
   @Column({ default: '' })
   usr_type: string;

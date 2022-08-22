@@ -8,12 +8,15 @@ import {
   ParseIntPipe,
   Post,
   Put,
+  Request,
+  UseGuards,
 } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { UserModel } from 'src/models/user.model';
 import { UserSchema } from 'src/schemas/user.schema';
-import { UserService } from 'src/user/user.service';
+import { UserService } from 'src/services/user.service';
+import { AuthGuard } from '@nestjs/passport';
 
 @Controller('/user')
 export class UserController {
@@ -44,23 +47,11 @@ export class UserController {
 
   @Get('/doc/:usr_cpf_cnpj')
   public async getOneDoc(
-    @Param('usr_cpf_cnpj', ParseIntPipe) usr_cpf_cnpj: number,
+    @Param('usr_cpf_cnpj', ParseIntPipe) usr_cpf_cnpj: string,
   ): Promise<UserModel> {
-    const user = await this.model.findOne({ where: { usr_cpf_cnpj } });
-
-    if (!user) {
-      throw new NotFoundException(
-        `Não achei uma pessoa com o usr_cpf_cnpj ${usr_cpf_cnpj}`,
-      );
-    }
-
-    return user;
+    return this.userService.findOne(usr_cpf_cnpj);
   }
 
-  // @Get()
-  // public async getAll(): Promise<UserModel[]> {
-  //   return this.model.find();
-  // }
   @Get()
   getAll() {
     return this.userService.getAll();
@@ -99,5 +90,11 @@ export class UserController {
     await this.model.delete(usr_id);
 
     return `A pessoa com usr_id ${usr_id} foi deletada com sucesso`;
+  }
+
+  @UseGuards(AuthGuard('local'))
+  @Post('/login')
+  async login(@Request() req) {
+    return req.user;
   }
 }

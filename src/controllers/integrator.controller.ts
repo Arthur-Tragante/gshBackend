@@ -8,17 +8,22 @@ import {
   ParseIntPipe,
   Post,
   Put,
+  Request,
+  UseGuards,
 } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { IntegratorModel } from 'src/models/integrator.model';
 import { IntegratorSchema } from 'src/schemas/integrator.schema';
+import { IntegratorService } from 'src/services/integrator.service';
+import { AuthGuard } from '@nestjs/passport';
 
 @Controller('/integrator')
 export class IntegratorController {
   constructor(
     @InjectRepository(IntegratorModel)
     private model: Repository<IntegratorModel>,
+    private integratorService: IntegratorService,
   ) {}
 
   @Post()
@@ -29,7 +34,7 @@ export class IntegratorController {
   }
 
   @Get(':int_id')
-  public async getOneDoc(
+  public async getOneId(
     @Param('int_id', ParseIntPipe) int_id: number,
   ): Promise<IntegratorModel> {
     const Integrator = await this.model.findOne({ where: { int_id } });
@@ -46,6 +51,13 @@ export class IntegratorController {
   @Get()
   public async getAll(): Promise<IntegratorModel[]> {
     return this.model.find();
+  }
+
+  @Get('/doc/:int_cpf_cnpj')
+  public async getOneDoc(
+    @Param('int_cpf_cnpj', ParseIntPipe) int_cpf_cnpj: string,
+  ): Promise<IntegratorModel> {
+    return this.integratorService.findOne(int_cpf_cnpj);
   }
 
   @Put(':int_id')
@@ -81,5 +93,11 @@ export class IntegratorController {
     await this.model.delete(int_id);
 
     return `A pessoa com int_id ${int_id} foi deletada com sucesso`;
+  }
+
+  @UseGuards(AuthGuard('int'))
+  @Post('/login')
+  async login(@Request() req) {
+    return req.user;
   }
 }

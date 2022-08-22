@@ -8,11 +8,14 @@ import {
   ParseIntPipe,
   Post,
   Put,
+  Request,
+  UseGuards,
 } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { CustomerModel } from 'src/models/customer.model';
 import { CustomerSchema } from 'src/schemas/customer.schema';
+import { AuthGuard } from '@nestjs/passport';
 
 @Controller('/customer')
 export class CustomerController {
@@ -93,5 +96,10 @@ export class CustomerController {
     await this.model.delete(cli_id);
 
     return `A pessoa com cli_id ${cli_id} foi deletada com sucesso`;
+  }
+  @UseGuards(AuthGuard('Cli'))
+  @Post('/login')
+  async login(@Request() req) {
+    return req.user;
   }
 }

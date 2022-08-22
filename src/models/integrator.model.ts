@@ -8,8 +8,10 @@ export class IntegratorModel {
   @Column({ default: '' })
   int_name?: string;
 
+  @Column({ default: '' })
+  int_password: string;
   @Column({ default: 0 })
-  int_cpf_cnpj?: number;
+  int_cpf_cnpj?: string;
 
   @Column({ default: 0 })
   int_rg_ie?: number;

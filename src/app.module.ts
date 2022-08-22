@@ -10,9 +10,9 @@ import { UserModule } from './modules/user.module';
 import { StatusModule } from './modules/status.module';
 import { UfModule } from './modules/uf.module';
 import { EmailModule } from './modules/email.module';
-import { AuthModule } from './auth/auth.module';
-import { UserService } from './user/user.service';
-
+import { AuthModule } from './auth/userAuth/auth.module';
+import { AuthIntModule } from './auth/IntAuth/authInt.module';
+import { AuthCustomerModule } from './auth/CustomerAuth/authCustomer.module';
 @Module({
   imports: [
     ConfigModule.forRoot({ isGlobal: true }),
@@ -35,6 +35,8 @@ import { UserService } from './user/user.service';
     UfModule,
     EmailModule,
     AuthModule,
+    AuthIntModule,
+    AuthCustomerModule,
   ],
   controllers: [],
   providers: [],
