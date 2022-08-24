@@ -103,4 +103,7 @@ export class ProjectModel {
 
   @Column({ default: "" })
   sts_name_next:string
+
+  @Column({ default: 0 })
+  pjt_os: number;
 }
