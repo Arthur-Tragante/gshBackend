@@ -24,5 +24,38 @@ export class DealershipModel {
   dls_type?: string;
 
   @Column({ default: '' })
-  dls_requirements?: string;
+  dls_requirement1?: string;
+
+  @Column({ default: '' })
+  dls_requirement2?: string;
+
+  @Column({ default: '' })
+  dls_requirement3?: string;
+
+  @Column({ default: '' })
+  dls_requirement4?: string;
+
+  @Column({ default: '' })
+  dls_requirement5?: string;
+
+  @Column({ default: '' })
+  dls_requirement6?: string;
+
+  @Column({ default: '' })
+  dls_requirement_visto1?: string;
+
+  @Column({ default: '' })
+  dls_requirement_visto2?: string;
+
+  @Column({ default: '' })
+  dls_requirement_visto3?: string;
+
+  @Column({ default: '' })
+  dls_requirement_visto4?: string;
+
+  @Column({ default: '' })
+  dls_requirement_visto5?: string;
+
+  @Column({ default: '' })
+  dls_requirement_visto6?: string;
 }
