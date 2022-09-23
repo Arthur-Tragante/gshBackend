@@ -32,18 +32,12 @@ export class ProjectController {
   ): Promise<ProjectModel> {
     const Project = await this.model.findOne({ where: { pjt_id } });
 
-    if (!Project) {
-      throw new NotFoundException(
-        `Não achei uma pessoa com o pjt_id ${pjt_id}`,
-      );
-    }
-
     return Project;
   }
 
   @Get('/doc/:cli_cpf_cnpj')
   public async getOneDoc(
-    @Param('cli_cpf_cnpj', ParseIntPipe) cli_cpf_cnpj: number,
+    @Param('cli_cpf_cnpj', ParseIntPipe) cli_cpf_cnpj: string,
   ): Promise<ProjectModel[]> {
     const Project = await this.model.find({ where: { cli_cpf_cnpj } });
 

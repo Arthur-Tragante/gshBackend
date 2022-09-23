@@ -43,20 +43,20 @@ export class CustomerController {
     return customer;
   }
 
-  // @Get(':cli_cpf_cnpj')
-  // public async getOneDoc(
-  //   @Param('cli_cpf_cnpj', ParseIntPipe) cli_cpf_cnpj: number,
-  // ): Promise<CustomerModel> {
-  //   const customer = await this.model.findOne({ where: { cli_cpf_cnpj } });
+  @Get('/doc/:cli_cpf_cnpj')
+  public async getOneDoc(
+    @Param('cli_cpf_cnpj', ParseIntPipe) cli_cpf_cnpj: string,
+  ): Promise<CustomerModel[]> {
+    const customer = await this.model.find({ where: { cli_cpf_cnpj } });
 
-  //   if (!customer) {
-  //     throw new NotFoundException(
-  //       `Não achei uma pessoa com o cli_cpf_cnpj ${cli_cpf_cnpj}`,
-  //     );
-  //   }
+    if (!customer) {
+      throw new NotFoundException(
+        `Não achei uma pessoa com o cli_cpf_cnpj ${cli_cpf_cnpj}`,
+      );
+    }
 
-  //   return customer;
-  // }
+    return customer;
+  }
 
   @Get()
   public async getAll(): Promise<CustomerModel[]> {

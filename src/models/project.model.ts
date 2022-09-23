@@ -89,8 +89,8 @@ export class ProjectModel {
   @Column({ default: 0 })
   cli_rg_ie: number;
 
-  @Column({ default: 0 })
-  cli_cpf_cnpj: number;
+  @Column({ default: '' })
+  cli_cpf_cnpj: string;
 
   @Column({ default: 0 })
   cli_phone2: number;
@@ -101,8 +101,8 @@ export class ProjectModel {
   @Column({ default: 0 })
   cli_cellphone: number;
 
-  @Column({ default: "" })
-  sts_name_next:string
+  @Column({ default: '' })
+  sts_name_next: string;
 
   @Column({ default: 0 })
   pjt_os: number;

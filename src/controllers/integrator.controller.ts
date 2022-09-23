@@ -56,8 +56,15 @@ export class IntegratorController {
   @Get('/doc/:int_cpf_cnpj')
   public async getOneDoc(
     @Param('int_cpf_cnpj', ParseIntPipe) int_cpf_cnpj: string,
-  ): Promise<IntegratorModel> {
-    return this.integratorService.findOne(int_cpf_cnpj);
+  ): Promise<IntegratorModel[]> {
+    const Integrator = await this.model.find({ where: { int_cpf_cnpj } });
+
+    if (!Integrator) {
+      throw new NotFoundException(
+        `Não achei uma pessoa com o pjt_id ${int_cpf_cnpj}`,
+      );
+    }
+    return Integrator;
   }
 
   @Put(':int_id')
