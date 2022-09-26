@@ -36,8 +36,8 @@ export class IntegratorController {
   @Get(':int_id')
   public async getOneId(
     @Param('int_id', ParseIntPipe) int_id: number,
-  ): Promise<IntegratorModel> {
-    const Integrator = await this.model.findOne({ where: { int_id } });
+  ): Promise<IntegratorModel[]> {
+    const Integrator = await this.model.find({ where: { int_id } });
 
     if (!Integrator) {
       throw new NotFoundException(
