@@ -31,8 +31,8 @@ export class DealershipController {
   @Get(':dls_id')
   public async getOneDoc(
     @Param('dls_id', ParseIntPipe) dls_id: number,
-  ): Promise<DealershipModel> {
-    const Dealership = await this.model.findOne({ where: { dls_id } });
+  ): Promise<DealershipModel[]> {
+    const Dealership = await this.model.find({ where: { dls_id } });
 
     if (!Dealership) {
       throw new NotFoundException(
