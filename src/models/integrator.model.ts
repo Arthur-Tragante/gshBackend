@@ -13,8 +13,8 @@ export class IntegratorModel {
   @Column({ default: 0 })
   int_cpf_cnpj?: string;
 
-  @Column({ default: 0 })
-  int_rg_ie?: number;
+  @Column({ default: '' })
+  int_rg_ie?: string;
 
   @Column({ default: '' })
   int_company_name?: string;
