@@ -106,4 +106,10 @@ export class ProjectModel {
 
   @Column({ default: 0 })
   pjt_os: number;
+
+  @Column({ default: 0 })
+  pjt_cable_gauge: number;
+
+  @Column({ default: '' })
+  pjt_connection: string;
 }

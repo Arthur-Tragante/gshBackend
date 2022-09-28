@@ -32,11 +32,13 @@ export class EmailController {
       },
       attachments: [
         {
-          filename: payload.name,
-          path: payload.url,
+          filename: payload.attachments[0].filename,
+          path: payload.attachments[0].path,
         },
       ],
     });
+
+    console.log(payload);
     return 'success';
   }
 }
