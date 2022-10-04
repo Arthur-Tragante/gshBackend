@@ -22,23 +22,36 @@ export class EmailController {
 
   @Post('html')
   async postHTMLEmail(@Body() payload) {
-    await this.mailService.sendMail({
-      to: payload.toemail,
-      from: payload.from,
-      subject: payload.subject,
-      template: 'mail',
-      context: {
-        text: payload,
-      },
-      attachments: [
-        {
-          filename: payload.attachments[0].filename,
-          path: payload.attachments[0].path,
+    if (payload.attachments.length > 0) {
+      await this.mailService.sendMail({
+        to: payload.toemail,
+        from: payload.from,
+        subject: payload.subject,
+        template: 'mail',
+        context: {
+          text: payload,
         },
-      ],
-    });
+        attachments: [
+          {
+            filename: payload.attachments[0].filename,
+            path: payload.attachments[0].path,
+          },
+        ],
+      });
 
-    console.log(payload);
-    return 'success';
+      console.log(payload);
+      return 'Enviado com anexo';
+    } else {
+      await this.mailService.sendMail({
+        to: payload.toemail,
+        from: payload.from,
+        subject: payload.subject,
+        template: 'mail',
+        context: {
+          text: payload,
+        },
+      });
+      return 'Enviado sem anexo';
+    }
   }
 }

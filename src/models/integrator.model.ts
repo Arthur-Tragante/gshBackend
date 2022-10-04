@@ -13,8 +13,8 @@ export class IntegratorModel {
   @Column({ default: 0 })
   int_cpf_cnpj?: string;
 
-  @Column({ default: 0 })
-  int_rg_ie?: number;
+  @Column({ default: '' })
+  int_rg_ie?: string;
 
   @Column({ default: '' })
   int_company_name?: string;
@@ -36,9 +36,6 @@ export class IntegratorModel {
 
   @Column({ default: '' })
   int_active?: string;
-
-  @Column({ default: 0 })
-  dls_id?: number;
 
   @Column({ default: '' })
   int_address?: string;

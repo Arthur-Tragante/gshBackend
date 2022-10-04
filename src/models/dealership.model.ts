@@ -14,11 +14,11 @@ export class DealershipModel {
   @Column({ default: 0 })
   uf_id?: number;
 
-  @Column({ default: 0 })
-  dls_cpf_cnpj?: number;
+  @Column({ default: '' })
+  dls_cpf_cnpj?: string;
 
-  @Column({ default: 0 })
-  dls_rg_ie?: number;
+  @Column({ default: '' })
+  dls_rg_ie?: string;
 
   @Column({ default: '' })
   dls_type?: string;

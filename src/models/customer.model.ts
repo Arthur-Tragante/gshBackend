@@ -5,35 +5,26 @@ export class CustomerModel {
   @PrimaryGeneratedColumn()
   cli_id: number;
 
-  @Column({ length: 120 })
+  @Column({ default: '' })
   cli_name?: string;
 
-  @Column({ length: 15 })
+  @Column({ default: '' })
   cli_password?: string;
 
-  @Column({ length: 15 })
+  @Column({ default: '' })
   cli_cpf_cnpj?: string;
 
   @Column('int')
-  cli_rg_ie?: number;
+  cli_rg_ie?: string;
 
-  @Column({ length: 120 })
+  @Column({ default: '' })
   cli_company_name?: string;
 
   @Column({ default: '' })
   cli_date?: string;
 
-  @Column({ length: 255 })
+  @Column({ default: '' })
   cli_email?: string;
-
-  @Column('int')
-  cli_cellphone?: number;
-
-  @Column('int')
-  cli_phone1?: number;
-
-  @Column('int')
-  cli_phone2?: number;
 
   @Column({ default: '' })
   cli_active?: string;
@@ -44,12 +35,21 @@ export class CustomerModel {
   @Column({ default: '' })
   cli_uf_name?: string;
 
-  @Column({ default: 0 })
-  cli_ibge_code?: number;
-
   @Column({ default: '' })
   cli_obs?: string;
 
   @Column({ default: '' })
   cli_type?: string;
+
+  @Column({ default: 0 })
+  cli_cellphone?: number;
+
+  @Column({ default: 0 })
+  cli_phone1?: number;
+
+  @Column({ default: 0 })
+  cli_phone2?: number;
+
+  @Column({ default: 0 })
+  cli_ibge_code?: number;
 }

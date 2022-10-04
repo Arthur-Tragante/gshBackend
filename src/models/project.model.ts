@@ -30,6 +30,9 @@ export class ProjectModel {
   pjt_cli_obs: string;
 
   @Column({ default: '' })
+  pjt_cli_type: string;
+
+  @Column({ default: '' })
   pjt_self_consume: string;
 
   @Column({ default: '' })
@@ -112,4 +115,109 @@ export class ProjectModel {
 
   @Column({ default: '' })
   pjt_connection: string;
+
+  @Column({ default: '' })
+  pjt_module_brand2: string;
+  @Column({ default: '' })
+  pjt_module_model2: string;
+  @Column({ default: '' })
+  pjt_module_maxpotency2: string;
+  @Column({ default: '' })
+  pjt_module_modules2: string;
+  @Column({ default: '' })
+  pjt_module_obs2: string;
+  @Column({ default: '' })
+  pjt_module_brand3: string;
+  @Column({ default: '' })
+  pjt_module_model3: string;
+  @Column({ default: '' })
+  pjt_module_maxpotency3: string;
+  @Column({ default: '' })
+  pjt_module_modules3: string;
+  @Column({ default: '' })
+  pjt_module_obs3: string;
+  @Column({ default: '' })
+  pjt_module_brand4: string;
+  @Column({ default: '' })
+  pjt_module_model4: string;
+  @Column({ default: '' })
+  pjt_module_maxpotency4: string;
+  @Column({ default: '' })
+  pjt_module_modules4: string;
+  @Column({ default: '' })
+  pjt_module_obs4: string;
+  @Column({ default: '' })
+  pjt_module_brand5: string;
+  @Column({ default: '' })
+  pjt_module_model5: string;
+  @Column({ default: '' })
+  pjt_module_maxpotency5: string;
+  @Column({ default: '' })
+  pjt_module_modules5: string;
+  @Column({ default: '' })
+  pjt_module_obs5: string;
+  @Column({ default: '' })
+  pjt_inverter_brand2: string;
+  @Column({ default: '' })
+  pjt_inverter_model2: string;
+  @Column({ default: '' })
+  pjt_inverter_maxpotency2: string;
+  @Column({ default: '' })
+  pjt_inverter_modules2: string;
+  @Column({ default: '' })
+  pjt_inverter_obs2: string;
+  @Column({ default: '' })
+  pjt_inverter_brand3: string;
+  @Column({ default: '' })
+  pjt_inverter_model3: string;
+  @Column({ default: '' })
+  pjt_inverter_maxpotency3: string;
+  @Column({ default: '' })
+  pjt_inverter_modules3: string;
+  @Column({ default: '' })
+  pjt_inverter_obs3: string;
+  @Column({ default: '' })
+  pjt_inverter_brand4: string;
+  @Column({ default: '' })
+  pjt_inverter_model4: string;
+  @Column({ default: '' })
+  pjt_inverter_maxpotency4: string;
+  @Column({ default: '' })
+  pjt_inverter_modules4: string;
+  @Column({ default: '' })
+  pjt_inverter_obs4: string;
+  @Column({ default: '' })
+  pjt_inverter_brand5: string;
+  @Column({ default: '' })
+  pjt_inverter_model5: string;
+  @Column({ default: '' })
+  pjt_inverter_maxpotency5: string;
+  @Column({ default: '' })
+  pjt_inverter_modules5: string;
+  @Column({ default: '' })
+  pjt_inverter_obs5: string;
+  @Column({ default: '' })
+  pjt_beneficiary_unitynumber: string;
+  @Column({ default: '' })
+  pjt_beneficiary_number1: string;
+  @Column({ default: '' })
+  pjt_beneficiary_percentage1: string;
+  @Column({ default: '' })
+  pjt_beneficiary_number2: string;
+  @Column({ default: '' })
+  pjt_beneficiary_percentage2: string;
+  @Column({ default: '' })
+  pjt_beneficiary_number3: string;
+  @Column({ default: '' })
+  pjt_beneficiary_percentage3: string;
+  @Column({ default: '' })
+  pjt_beneficiary_number4: string;
+  @Column({ default: '' })
+  pjt_beneficiary_percentage4: string;
+  @Column({ default: '' })
+  pjt_beneficiary_number5: string;
+  @Column({ default: '' })
+  pjt_beneficiary_percentage5: string;
+  @Column({ default: '' })
+  pjt_code: number;
 }
