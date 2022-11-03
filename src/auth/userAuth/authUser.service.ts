@@ -9,7 +9,9 @@ export class AuthService {
     const user = await this.UserService.findOne(usr_cpf_cnpj);
     if (user && user.usr_password === usr_password) {
       const { usr_password, ...result } = user;
+      console.log(result)
       return result;
+
     }
     return null;
   }

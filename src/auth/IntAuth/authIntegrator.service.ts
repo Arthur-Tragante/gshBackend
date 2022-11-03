@@ -12,6 +12,7 @@ export class AuthInt {
     const integrator = await this.IntegratorService.findOne(int_cpf_cnpj);
     if (integrator && integrator.int_password === int_password) {
       const { int_password, ...result } = integrator;
+
       return result;
     }
     return null;

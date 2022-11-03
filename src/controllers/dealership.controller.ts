@@ -43,6 +43,21 @@ export class DealershipController {
     return Dealership;
   }
 
+  @Get('/name/:dls_name')
+  public async getOne(
+    @Param('dls_name') dls_name: string,
+  ): Promise<DealershipModel[]> {
+    const Dealership = await this.model.find({ where: { dls_name } });
+
+    if (!Dealership) {
+      throw new NotFoundException(
+        `Não achei uma pessoa com o dls_id ${dls_name}`,
+      );
+    }
+
+    return Dealership;
+  }
+
   @Get()
   public async getAll(): Promise<DealershipModel[]> {
     return this.model.find();

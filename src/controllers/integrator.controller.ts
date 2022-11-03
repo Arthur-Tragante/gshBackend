@@ -48,6 +48,21 @@ export class IntegratorController {
     return Integrator;
   }
 
+  @Get('/name/:int_name')
+  public async getOne(
+    @Param('int_name') int_name: string,
+  ): Promise<IntegratorModel[]> {
+    const Integrator = await this.model.find({ where: { int_name } });
+
+    if (!Integrator) {
+      throw new NotFoundException(
+        `Não achei uma pessoa com o int_id ${int_name}`,
+      );
+    }
+
+    return Integrator;
+  }  
+
   @Get()
   public async getAll(): Promise<IntegratorModel[]> {
     return this.model.find();
@@ -55,7 +70,7 @@ export class IntegratorController {
 
   @Get('/doc/:int_cpf_cnpj')
   public async getOneDoc(
-    @Param('int_cpf_cnpj', ParseIntPipe) int_cpf_cnpj: string,
+    @Param('int_cpf_cnpj') int_cpf_cnpj: string,
   ): Promise<IntegratorModel[]> {
     const Integrator = await this.model.find({ where: { int_cpf_cnpj } });
 

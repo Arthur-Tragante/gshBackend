@@ -8,12 +8,13 @@ export class AuthCustomer {
   async validateCustomer(
     cli_cpf_cnpj: string,
     cli_password: string,
-  ): Promise<any> {
+  ): Promise<any> {    
     const customer = await this.CustomerService.findOne(cli_cpf_cnpj);
-    if (customer && customer.cli_password === 'null') {
+    if (customer ) {
       const { cli_password, ...result } = customer;
-      return result;
-    }
+
+      return result;      
+    }   
     return null;
   }
 }
