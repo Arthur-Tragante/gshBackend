@@ -50,6 +50,21 @@ export class ProjectController {
     return Project;
   }
 
+  @Get('/docInt/:int_cpf_cnpj')
+  public async getOneDocInt(
+    @Param('int_cpf_cnpj') int_cpf_cnpj: string,
+  ): Promise<ProjectModel[]> {
+    const Project = await this.model.find({ where: { int_cpf_cnpj } });
+
+    if (!Project) {
+      throw new NotFoundException(
+        `Não achei uma pessoa com o int_cpf_cnpj ${int_cpf_cnpj}`,
+      );
+    }
+
+    return Project;
+  }
+
   @Get()
   public async getAll(): Promise<ProjectModel[]> {
     return this.model.find();

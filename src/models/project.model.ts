@@ -45,10 +45,10 @@ export class ProjectModel {
   pjt_longitude: string;
 
   @Column({ default: 0 })
-  pjt_gcb_voltage: number;
+  pjt_gcb_voltage: string;
 
   @Column({ default: 0 })
-  pjt_closest_post: number;
+  pjt_closest_post: string;
 
   @Column({ default: '' })
   pjt_module_brand: string;
@@ -57,10 +57,10 @@ export class ProjectModel {
   pjt_module_model: string;
 
   @Column({ default: 0 })
-  pjt_module_maxpotency: number;
+  pjt_module_maxpotency: string;
 
   @Column({ default: 0 })
-  pjt_module_modules: number;
+  pjt_module_modules: string;
 
   @Column({ default: '' })
   pjt_module_obs: string;
@@ -72,10 +72,10 @@ export class ProjectModel {
   pjt_inverter_model: string;
 
   @Column({ default: 0 })
-  pjt_inverter_maxpotency: number;
+  pjt_inverter_maxpotency: string;
 
   @Column({ default: 0 })
-  pjt_inverter_modules: number;
+  pjt_inverter_modules: string;
 
   @Column({ default: '' })
   pjt_inverter_obs: string;
@@ -92,29 +92,29 @@ export class ProjectModel {
   @Column({ default: '' })
   cli_initial_date: string;
 
-  @Column({ default: 0 })
-  cli_rg_ie: number;
+  @Column()
+  cli_rg_ie: string;
 
   @Column({ default: '' })
   cli_cpf_cnpj: string;
 
   @Column({ default: 0 })
-  cli_phone2: number;
+  cli_phone2: string;
 
   @Column({ default: 0 })
-  cli_phone1: number;
+  cli_phone1: string;
 
   @Column({ default: 0 })
-  cli_cellphone: number;
+  cli_cellphone: string;
 
   @Column({ default: '' })
   sts_name_next: string;
 
   @Column({ default: 0 })
-  pjt_os: number;
+  pjt_os: string;
 
   @Column({ default: 0 })
-  pjt_cable_gauge: number;
+  pjt_cable_gauge: string;
 
   @Column({ default: '' })
   pjt_connection: string;
@@ -680,4 +680,5 @@ export class ProjectModel {
   @Column({ default: '' }) pjt_module_obs48: string;
   @Column({ default: '' }) pjt_module_obs49: string;
   @Column({ default: '' }) pjt_module_obs50: string;
+  @Column({ default: '' }) int_cpf_cnpj: string;
 }
